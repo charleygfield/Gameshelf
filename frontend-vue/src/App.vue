@@ -6,6 +6,7 @@
       <router-link to="/addgame">Add A Game</router-link>
       <router-link to="/gamenight">Gamenight!</router-link>
     </div>
+    
     <router-view/>
   </div>
 </template>
