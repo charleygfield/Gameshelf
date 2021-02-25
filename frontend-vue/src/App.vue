@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/game">Games</router-link> |
       <router-link to="/person">People</router-link>
-      <router-link to="/addperson">Add People</router-link>
       <router-link to="/addgame">Add A Game</router-link>
       <router-link to="/gamenight">Gamenight!</router-link>
     </div>

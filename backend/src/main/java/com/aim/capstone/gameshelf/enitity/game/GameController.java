@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,10 +30,26 @@ public class GameController {
         return game.get();
     }
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "/api/game")
     public @ResponseBody String createGame(@RequestBody Game game) {
         gameRepository.save(game);
         return "Saved";
+    }
+
+    @PutMapping(path = "/{id}")
+    public @ResponseBody String updateGame(@PathVariable(value = "id") Integer id, @RequestBody Game gameDetails) {
+
+        Optional<Game> optionalGame = gameRepository.findById(id);
+        Game game = optionalGame.get();
+
+        game.setTitle(gameDetails.getTitle());
+        game.setPlayer_min(gameDetails.getPlayer_min());
+        game.setPlayer_max(gameDetails.getPlayer_max());
+        game.setPerson(gameDetails.getPerson());
+        game.setPlaytype(gameDetails.getPlaytype());
+
+        gameRepository.save(gameDetails);
+        return "Updated";
     }
 
     @DeleteMapping(path = "/{id}")
