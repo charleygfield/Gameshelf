@@ -10,7 +10,6 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.moment = moment
 
-
 new Vue({
     router,
     render: h => h(App)

@@ -3,6 +3,7 @@ package com.aim.capstone.gameshelf.enitity.game;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping(path = "/api/game")
 public class GameController {
     @Autowired
@@ -30,10 +30,9 @@ public class GameController {
         return game.get();
     }
 
-    @PostMapping(path = "/api/game")
-    public @ResponseBody String createGame(@RequestBody Game game) {
-        gameRepository.save(game);
-        return "Saved";
+    @PostMapping(path = "/")
+    public Game createGame(@RequestBody Game game) {
+        return gameRepository.save(game);
     }
 
     @PutMapping(path = "/{id}")

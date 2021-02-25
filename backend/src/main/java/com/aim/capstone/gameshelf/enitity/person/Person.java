@@ -14,9 +14,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "person_id")
 
-    private Integer person_id;
+    private int person_id;
     private String first_name;
     private String last_name;
+
+    public Person(){
+
+    }
+
+    public Person(int person_id, String first_name, String last_name){
+        this.person_id = person_id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
 
     public Integer getPerson_id() {
         return person_id;
