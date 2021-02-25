@@ -17,6 +17,15 @@ public class Playtype {
     private Integer type_id;
     private String playtype;
 
+    public Playtype() {
+
+    }
+
+    public Playtype(Integer type_id, String playtype){
+        this.type_id = type_id;
+        this.playtype = playtype;
+    }
+
     public Integer getType_id() {
         return type_id;
     }

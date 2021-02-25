@@ -21,24 +21,10 @@ public class Game {
 
     private Integer id;
 
+    @Column
     private String title;
     private int player_min;
     private int player_max;
-    private int person_id;
-    private int type_id;
-
-    public Game() {
-
-    }
-
-    public Game(int id, String title,  int player_min, int player_max, int person_id, int type_id) {
-        this.id = id;
-        this.title = title;
-        this.player_min = player_min;
-        this.player_max = player_max;
-        this.person_id = person_id;
-        this.type_id = type_id;
-    }
 
     @ManyToOne
     @JoinColumn(name = "person_id", nullable = false)
@@ -47,6 +33,17 @@ public class Game {
     @ManyToOne
     @JoinColumn(name = "type_id", nullable = false)
     private Playtype playtype;
+
+    public Game() {
+
+    }
+
+    public Game(int id, String title,  int player_min, int player_max) {
+        this.id = id;
+        this.title = title;
+        this.player_min = player_min;
+        this.player_max = player_max;
+    }
 
     public Integer getId() {
         return id;
@@ -80,21 +77,6 @@ public class Game {
         this.player_max = player_max;
     }
 
-    public int getPerson_id() {
-        return person_id;
-    }
-
-    public void setPerson_id(int person_id) {
-        this.person_id = person_id;
-    }
-
-    public int getType_id() {
-        return type_id;
-    }
-
-    public void setType_id(int type_id) {
-        this.type_id = type_id;
-    }
 
     public Person getPerson() {
         return person;

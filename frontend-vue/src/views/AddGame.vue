@@ -25,25 +25,16 @@
 
         <div class="field">
            <label class="label">Owner</label>
-           <div class="controller" v-for="person in person" :key="person.id">
-                   <input type="radio" :id="person.id" :value="person" v-model="person.id" class="radio"/>
+           <div class="controller" v-for="person in persons" :key="person.person_id">
+                   <input type="radio" :id="person.person_id" :value="person" v-model="person.person_id" class="radio"/>
                    {{person.first_name + person.last_name}}
            </div>
         </div>
 
         <div class="field">
-           <label class="label">Owner</label>
-           <div class="controller" v-for="person in person" :key="person.id">
-                   <input type="radio" :id="person.id" :value="person" v-model="person.id" class="radio"/>
-                   {{person.first_name + person.last_name}}
-           </div>
-        </div>
-
-        <div class="field">
-           <label class="label">Owner</label>
-           <div class="controller" v-for="playtype in playtype" :key="playtype.id">
-                   <input type="radio" :id="playtype.id" :value="playtype" v-model="playtype.id" class="radio"/>
-                   {{playtype.playtype}}
+           <label class="label">{{playtype.playtype}}</label>
+           <div class="controller" v-for="playtype in playtypes" :key="playtype.playtype_id">
+                   <input type="radio" :id="playtype.playtype_id" :value="playtype.playtype" v-model="playtype.playtype_id" class="radio"/>
            </div>
         </div>
 

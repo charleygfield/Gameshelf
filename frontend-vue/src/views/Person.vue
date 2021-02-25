@@ -1,7 +1,7 @@
 <template>
   <div class="main">
       <div clas="header">
-    <h1 class="title"> Actors</h1>
+    <h1 class="title"> People </h1>
   </div>
 
   <router-link to="/addperson" tag="button" class="button is-primary">Add People</router-link>
@@ -16,8 +16,8 @@
             </thead>
 
             <tbody>
-                <tr v-for="person in person" :key="person.id">
-                <td>{{person.id}}</td>
+                <tr v-for="person in persons" :key="person.person_id">
+                <td>{{person.person_id}}</td>
                 <td>{{person.first_name}} {{person.last_name}}</td>
               </tr>
             </tbody>
