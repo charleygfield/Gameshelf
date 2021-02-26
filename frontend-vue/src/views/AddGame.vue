@@ -34,7 +34,8 @@
         <div class="field">
            <label class="label">{{playtype.playtype}}</label>
            <div class="controller" v-for="playtype in playtypes" :key="playtype.playtype_id">
-                   <input type="radio" :id="playtype.playtype_id" :value="playtype.playtype" v-model="playtype.playtype_id" class="radio"/>
+                   <input type="radio" :id="playtype.playtype_id" :value="playtype_id" v-model="playtype.playtype_id" class="radio"/>
+                   {{playtype}}
            </div>
         </div>
 
