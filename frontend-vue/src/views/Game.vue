@@ -27,3 +27,19 @@
       </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Games',
+  data: () => ({
+    games: []
+  }),
+  async mounted(){
+    console.log('game mounted being')
+    const{ data } = await this.$http.get('http://localhost:8080/game');
+    console.log('game mounted data', data)
+    this.game = data;
+  }
+
+}
+</script>

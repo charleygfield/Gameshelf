@@ -44,10 +44,10 @@ export default {
             this.$router.push({path: '/person'});
         },
         async save(){
-            const response = await this.$http.post('http://localhost:8080/api/person/',
+            const response = await this.$http.post('http://localhost:8080/person/',
             this.person)
             console.log(response);
-            if( response.status === 200){
+            if(response.status === 200){
                 this.$router.push({path: '/person'});
             }
         }

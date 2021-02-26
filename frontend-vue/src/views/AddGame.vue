@@ -19,7 +19,7 @@
         <div class="field">
             <label class="label" for="player_max">Maximum Players</label>
             <div class="controller">
-            <input id="player_max" class="input" type="number" min="1" max="100" v-model="game.player_min">
+            <input id="player_max" class="input" type="number" min="1" max="100" v-model="game.player_max">
             </div>
         </div>
 
@@ -32,9 +32,9 @@
         </div>
 
         <div class="field">
-           <label class="label">{{playtype.playtype}}</label>
+           <label class="label">Playtype</label>
            <div class="controller" v-for="playtype in playtypes" :key="playtype.playtype_id">
-                   <input type="radio" :id="playtype.playtype_id" :value="playtype_id" v-model="playtype.playtype_id" class="radio"/>
+                   <input type="radio" :id="playtype.playtype_id" :value="playtype" v-model="playtype.playtype_id" class="radio"/>
                    {{playtype}}
            </div>
         </div>
@@ -62,8 +62,8 @@ export default {
             person: {},
             playtype: {}
         },
-        person: [],
-        playtype: [],
+        persons: [],
+        playtypes: [],
 }),
 methods: {
         async save () {
@@ -73,7 +73,7 @@ methods: {
             this.$router.push({path: '/addgame'})
         },
         cancel() {
-            this.$router.push({path: '/addgame'})
+            this.$router.push({path: '/game'})
         },
 
          async getPerson() {

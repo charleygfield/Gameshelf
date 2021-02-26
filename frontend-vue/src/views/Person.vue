@@ -23,5 +23,25 @@
             </tbody>
         </table>
       </div>
+
+      <div>
+
+      </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Person',
+  data: () => ({
+    persons: []
+  }),
+  async mounted(){
+    console.log('person mounted being')
+    const{ data } = await this.$http.get('http://localhost:8080/person');
+    console.log('person mounted data', data)
+    this.person = data;
+  }
+
+}
+</script>
